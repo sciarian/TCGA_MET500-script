@@ -1,7 +1,7 @@
 #################################
 #
 # @Author: Anthony Sciarini
-# @Version: (>o_o)>
+# @Version: 02/13/2019
 #
 #################################
 
@@ -26,7 +26,6 @@ def key_not_exist(dict,key):
 '''
 #Grab TCGA data
 with open('master.maf.txt') as fp:
-	
 	for line in fp:
 		atr = line.split('\t')
 		#Update dictionary matrix
@@ -35,13 +34,10 @@ with open('master.maf.txt') as fp:
 				matrix_dict[atr[0]] = Set([])
 				sample_list.add(atr[0])
 				if atr[1] != 'Unknown':
+					#Update matrix dictionary.
 			 		matrix_dict[atr[0]].add(atr[1])
-			else:
-				if atr[1] != 'Unknown':
-					matrix_dict[atr[0]].add(atr[1])
-			#Update gene list
-			if atr[1] != 'Unknown':
-		        	master_gene_list.add(atr[1])
+					#Update gene list.
+		        		master_gene_list.add(atr[1])
 		
 
 #Grab Med500 data
